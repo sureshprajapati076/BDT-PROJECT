@@ -1,19 +1,13 @@
 package cs523.youtube;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import org.apache.spark.SparkConf;
-import org.apache.spark.api.java.JavaPairRDD;
-import org.apache.spark.api.java.function.VoidFunction;
 import org.apache.spark.streaming.Durations;
 import org.apache.spark.streaming.api.java.JavaDStream;
-import org.apache.spark.streaming.api.java.JavaPairDStream;
 import org.apache.spark.streaming.api.java.JavaStreamingContext;
-
-import scala.Tuple2;
 
 public class YouTubeVideoTrending 
 {
@@ -41,10 +35,10 @@ public class YouTubeVideoTrending
 		  
 		  
 		  
-		  
+	  
 		  
 	  
-	 JavaDStream<List<String>> counter = lines.map(line->Arrays.asList(line.split("\\t")));
+	 JavaDStream<List<String>> counter = lines.map(line->Arrays.asList(line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)")));
 	  
 	  
 	  
@@ -72,7 +66,7 @@ public class YouTubeVideoTrending
 		  
 		  
 		  });
-		  rdd.coalesce(1).saveAsTextFile("/home/cloudera/output");
+		//  rdd.coalesce(1).saveAsTextFile("/home/cloudera/output");
 		  
 		  }
       });
@@ -96,7 +90,7 @@ public class YouTubeVideoTrending
 	  
 	  
 	  
-
+ssc.close();
 	  
 	  
 	 
