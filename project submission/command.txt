@@ -1,0 +1,57 @@
+#################################################################
+HBase
+#################################################################
+hbase shell
+
+list
+scan
+
+if err: 	sudo service hbase-master restart
+		sudo service hbase-regionserver restart
+		service --status-all
+count
+
+#################################################################
+Streaming:
+#################################################################
+Flume:	
+flume-ng agent -n agent1 -c /home/cloudera/cs523/flume/conf/ -f /home/cloudera/cs523/flume/conf/config.conf
+
+Run Jar file OR on eclipse
+
+hadoop jar Desktop/filename.jar
+
+Append records in log file
+/home/cloudera/cs523/flume/log/logFile.txt
+
+see the new records in either Hbase shell or HUE > HBASE UI
+
+
+
+##############################################################
+Zeppelin
+##############################################################
+
+cd ./Downloads/zeppelin-0.8.1-bin-all
+
+sudo bin/zeppelin-daemon.sh start
+
+
+##############################################################
+Kafka
+##############################################################
+sudo jps (to check if kafka, zookeeper are running)
+
+cd /usr/lib/kafka/bin/
+
+create Topic
+
+./kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 -topic YTVideo
+
+start consumer
+
+./kafka-console-consumer.sh --zookeeper localhost:2181 -topic YTVideo --from-beginning
+
+Run Jar file
+hadoop jar Desktop/kafkademo.jar YTVideo Desktop/USvideos.csv
+
