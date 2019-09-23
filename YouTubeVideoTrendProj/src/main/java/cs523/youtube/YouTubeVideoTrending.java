@@ -1,9 +1,7 @@
 package cs523.youtube;
-
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
-
 import org.apache.spark.SparkConf;
 import org.apache.spark.streaming.Durations;
 import org.apache.spark.streaming.api.java.JavaDStream;
