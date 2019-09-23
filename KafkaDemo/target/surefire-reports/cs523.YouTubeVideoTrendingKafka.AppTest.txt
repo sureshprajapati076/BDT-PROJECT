@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: cs523.YouTubeVideoTrendingKafka.AppTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.159 s - in cs523.YouTubeVideoTrendingKafka.AppTest
