@@ -1,8 +1,6 @@
 package cs523.youtube;
-
 import java.io.IOException;
 import java.util.List;
-
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.HColumnDescriptor;
@@ -17,7 +15,6 @@ import org.apache.hadoop.hbase.util.Bytes;
 
 public class HbaseTable {
 	private static final String TABLE_NAME = "videos";
-	
 	private static final String CF_DETAILS = "details";
 	private static final String	CF_SETTINGS ="settings";
 	private static final String CF_REACTION = "reaction";
@@ -32,20 +29,9 @@ public class HbaseTable {
 					TableName.valueOf(TABLE_NAME));
 			
 			table.addFamily(new HColumnDescriptor(CF_DETAILS));
-			
 			table.addFamily(new HColumnDescriptor(CF_REACTION));
-			
-			
 			table.addFamily(new HColumnDescriptor(CF_SETTINGS));
-		
-			
-			
-			
-			
-		//	admin.disableTable(table.getTableName());
-			//admin.deleteTable(table.getTableName());
-			
-			
+	
 			System.out.print("Creating table.... ");
 			if (admin.tableExists(table.getTableName())) {
 				
@@ -84,12 +70,6 @@ public class HbaseTable {
 			p1.add(Bytes.toBytes(CF_SETTINGS), Bytes.toBytes("rating_disable"),Bytes.toBytes(list.get(13)));
 			p1.add(Bytes.toBytes(CF_SETTINGS), Bytes.toBytes("video_removed_err"),Bytes.toBytes(list.get(14)));
 			
-		
-		
-			
-			
-			
-
 			hTable.put(p1);
 		
 			System.out.println("data inserted");
@@ -98,11 +78,6 @@ public class HbaseTable {
 			}
 			else{
 				System.out.println("Skipped: (size) = "+list.size()+".....>"+list);
-			}
-			
+			}	
 		}
-	
-
-
 }
-
